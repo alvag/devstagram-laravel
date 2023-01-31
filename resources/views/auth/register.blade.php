@@ -62,7 +62,6 @@
                         Contraseña
                     </label>
                     <input type="password" id="password" name="password" placeholder="Tu contraseña"
-                        value="{{ old('password') }}"
                         class="p-3 border w-full rounded-lg @error('password') border-red-500 @enderror">
 
                     @error('password')
@@ -77,7 +76,7 @@
                         Repetir Contraseña
                     </label>
                     <input type="password" id="password_confirmation" name="password_confirmation"
-                        placeholder="Repite tu contraseña" value="{{ old('password_confirmation') }}"
+                        placeholder="Repite tu contraseña"
                         class="p-3 border w-full rounded-lg @error('password_confirmation') border-red-500 @enderror">
 
                     @error('password_confirmation')
