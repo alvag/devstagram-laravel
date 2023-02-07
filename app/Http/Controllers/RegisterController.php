@@ -3,18 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
-    public function index()
+    public function index(): Factory|View|Application
     {
         return view('auth.register');
     }
 
-    public function store(Request $request)
+    /**
+     * @throws ValidationException
+     */
+    public function store(Request $request): RedirectResponse
     {
         $request->request->add(['username' => Str::slug($request->username)]);
 
