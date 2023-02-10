@@ -36,12 +36,14 @@ class PostController extends Controller
             'image' => 'required',
         ]);
 
-        Post::create([
+        /* Post::create([
             'title' => $data['title'],
             'description' => $data['description'],
             'image' => $data['image'],
             'user_id' => auth()->user()->id,
-        ]);
+        ]); */
+
+        $request->user()->posts()->create($data);
 
         return redirect()->route('posts.index', auth()->user()->username);
     }
